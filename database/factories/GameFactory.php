@@ -22,7 +22,11 @@ class GameFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'win_method' => $this->faker->randomElement([
+                'win',
+                'black_ball',
+                'black_ball_opponent'
+            ])
         ];
     }
 }
