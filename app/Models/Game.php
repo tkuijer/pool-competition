@@ -17,15 +17,21 @@ class Game extends Model
 
     protected $appends = [
         'winner',
+        'loser',
     ];
 
     public function players(): BelongsToMany
     {
-        return $this->belongsToMany(Player::class);
+        return $this->belongsToMany(Player::class)->withPivot(['winner', 'color', 'cue_number']);
     }
 
     public function getWinnerAttribute(): Player
     {
-        return $this->players()->wherePivot('winner', true)->withPivot(['winner', 'color', 'cue_number'])->first();
+        return $this->players()->wherePivot('winner', true)->first();
+    }
+
+    public function getLoserAttribute(): Player
+    {
+        return $this->players()->wherePivot('winner', false)->first();
     }
 }
