@@ -15,8 +15,17 @@ class Game extends Model
         'updated_at',
     ];
 
+    protected $appends = [
+        'winner',
+    ];
+
     public function players(): BelongsToMany
     {
-        return $this->belongsToMany(Player::class)->withPivot(['winner', 'color', 'cue_number']);
+        return $this->belongsToMany(Player::class);
+    }
+
+    public function getWinnerAttribute(): Player
+    {
+        return $this->players()->wherePivot('winner', true)->withPivot(['winner', 'color', 'cue_number'])->first();
     }
 }
