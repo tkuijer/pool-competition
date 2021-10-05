@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,6 +24,11 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::middleware('auth')->group(function() {
+    Route::resource('game', GameController::class);
+});
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
