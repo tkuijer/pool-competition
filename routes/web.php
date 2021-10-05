@@ -25,7 +25,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::resource('game', GameController::class);
 });
 
