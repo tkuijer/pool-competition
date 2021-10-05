@@ -25,8 +25,8 @@ class GameFactory extends Factory
             'win_method' => $this->faker->randomElement([
                 'win',
                 'black_ball',
-                'black_ball_opponent'
-            ])
+                'black_ball_opponent',
+            ]),
         ];
     }
 }
