@@ -10,6 +10,11 @@ class Player extends Model
 {
     use HasFactory;
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function games(): BelongsToMany
     {
         return $this->belongsToMany(Game::class)->withPivot(['winner', 'color', 'cue_number']);
