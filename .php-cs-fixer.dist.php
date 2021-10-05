@@ -89,7 +89,7 @@ return $config
         'phpdoc_separation' => true,
         'phpdoc_single_line_var_spacing' => true,
         'phpdoc_summary' => true,
-//        'phpdoc_trim' => true,
+        'phpdoc_trim' => true,
         'phpdoc_types' => true,
         'phpdoc_var_without_name' => true,
         'return_type_declaration' => true,

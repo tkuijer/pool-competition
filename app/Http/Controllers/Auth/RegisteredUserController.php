@@ -32,7 +32,6 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      *
      * @return \Illuminate\Http\RedirectResponse
-     *
      */
     public function store(Request $request)
     {
