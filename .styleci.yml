@@ -19,8 +19,3 @@ php:
       - "storage"
       - "spark"
       - "vendor"
-js:
-  finder:
-    not-name:
-      - webpack.mix.js
-css: true
