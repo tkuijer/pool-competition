@@ -18,6 +18,10 @@
                                 <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </BreezeNavLink>
+
+                                <BreezeNavLink :href="route('player.index')" :active="route().current('player.index')">
+                                    Players
+                                </BreezeNavLink>
                             </div>
                         </div>
 

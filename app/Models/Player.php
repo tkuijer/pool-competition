@@ -15,6 +15,10 @@ class Player extends Model
         'updated_at',
     ];
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function games(): BelongsToMany
     {
         return $this->belongsToMany(Game::class)->withPivot(['winner', 'color', 'cue_number']);
