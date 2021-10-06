@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\GameController;
 use App\Http\Controllers\AdminPlayerController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +17,16 @@ use Inertia\Inertia;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::resource('/', GameController::class)->only(['index', 'create', 'store', 'destroy']);
+    Route::get('/', [GameController::class, 'index'])->name('game.index');
+    Route::get('/new-game', [GameController::class, 'create'])->name('game.create');
+    Route::post('/', [GameController::class, 'store'])->name('game.store');
 
     Route::get('/players', [PlayerController::class, 'index'])->name('player.index');
 });
 
-Route::middleware(['auth', 'auth.admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'auth.admin'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', function () {
-        return Inertia::render('Dashboard');
+        return inertia('Dashboard');
     })->name('dashboard');
 
     Route::resource('player', AdminPlayerController::class)->only(['index', 'store', 'update', 'destroy']);

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
-use Illuminate\Http\Request;
 use Inertia\Response as InertiaResponse;
 
 class PlayerController extends Controller

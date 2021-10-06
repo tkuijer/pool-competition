@@ -1,13 +1,30 @@
 <template>
     <Head title="Pool games" />
 
-    <h2 class="font-bold pb-4 text-xl">Completed pool games:</h2>
+    <div class="flex flex-row justify-between">
+        <div class="border">
+            <Link :href="route('game.create')">
+                Nieuwe uitslag toevoegen
+            </Link>
+        </div>
+        <div class="border">
+            <Link :href="route('player.index')">
+                Spelers
+            </Link>
+        </div>
+    </div>
+
+    <h2 class="font-bold pb-4 text-xl">Afgeronde potjes pool:</h2>
+
+    <div v-if="games.length === 0">
+        <h3 class="font-semibold text-xl">Er zijn nog geen potjes gespeeld.</h3>
+    </div>
 
     <div v-for="game in games" class="border-b mb-4">
-        <h3 class="font-semibold text-lg">Game #{{ game.id }}:</h3>
-        <div class="text-lg ">
+        <h3 class="font-semibold text-lg">#{{ game.id }}:</h3>
+        <div class="text-lg">
             <div class="underline">
-                Winner: <span class="italic">{{ game.winner.name }}</span>
+                Winnaar: <span class="italic">{{ game.winner.name }}</span>
             </div>
             Playing the {{ game.winner.pivot.color }} ball. Won by: {{ game.win_method }}
         </div>

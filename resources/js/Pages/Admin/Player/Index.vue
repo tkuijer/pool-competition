@@ -87,12 +87,12 @@ export default {
     },
     methods: {
         deletePlayer: function(player) {
-            Inertia.delete(route('player.destroy', player), {
+            Inertia.delete(route('admin.player.destroy', player), {
                 onBefore: () => confirm('Delete player?')
             })
         },
         storePlayer: function() {
-            this.form.post(route('player.store'), {
+            this.form.post(route('admin.player.store'), {
                 onSuccess: () => {
                     this.form.name = ''
                 }
