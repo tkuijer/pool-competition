@@ -14,6 +14,9 @@ class AddOndeleteConstraintsToGamePlayerTable extends Migration
     public function up()
     {
         Schema::table('game_player', function (Blueprint $table) {
+            $table->dropForeign('game_player_game_id_foreign');
+            $table->dropForeign('game_player_player_id_foreign');
+
             $table->foreignId('game_id')->change()->constrained()->cascadeOnDelete();
             $table->foreignId('player_id')->change()->constrained()->cascadeOnDelete();
         });
