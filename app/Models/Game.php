@@ -30,6 +30,10 @@ class Game extends Model
         'loser',
     ];
 
+    protected $fillable = [
+        'win_method',
+    ];
+
     public function players(): BelongsToMany
     {
         return $this->belongsToMany(Player::class)->withPivot(['winner', 'color', 'cue_number']);
