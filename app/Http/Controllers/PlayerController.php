@@ -28,7 +28,7 @@ class PlayerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  StorePlayerRequest  $request
+     * @param StorePlayerRequest $request
      *
      * @return RedirectResponse
      */
@@ -42,7 +42,7 @@ class PlayerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Player  $player
+     * @param Player $player
      *
      * @return Response
      */
@@ -54,7 +54,7 @@ class PlayerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Player  $player
+     * @param Player $player
      *
      * @return Response
      */
@@ -66,8 +66,8 @@ class PlayerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  Player  $player
+     * @param Request $request
+     * @param Player  $player
      *
      * @return Response
      */
@@ -79,7 +79,7 @@ class PlayerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Player  $player
+     * @param Player $player
      *
      * @return Response
      */

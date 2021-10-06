@@ -52,7 +52,7 @@ class GameController extends Controller
             $request->opponent_id => [
                 'winner' => false,
                 'color' => $opponent_color,
-            ]
+            ],
         ]);
 
         return redirect()->route('game.index');
