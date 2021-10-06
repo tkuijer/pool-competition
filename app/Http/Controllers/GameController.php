@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGameRequest;
 use App\Models\Game;
 use App\Models\Player;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Response as InertiaResponse;
 
 class GameController extends Controller
@@ -35,7 +36,7 @@ class GameController extends Controller
         );
     }
 
-    public function store(StoreGameRequest $request)
+    public function store(StoreGameRequest $request): RedirectResponse
     {
         $colors = Game::getColors();
         $opponent_color = $colors[0] === $request->winner_color ? $colors[1] : $colors[0];

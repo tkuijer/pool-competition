@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\PlayerController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,25 +16,16 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
 Route::middleware('auth')->group(function () {
-    Route::resource('game', GameController::class);
+    Route::resource('/', GameController::class)->only(['index', 'create', 'store', 'destroy']);
 });
 
-Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::resource('player', PlayerController::class);
+    Route::resource('player', PlayerController::class)->only(['index', 'store', 'update', 'destroy']);
 });
 
 require __DIR__.'/auth.php';

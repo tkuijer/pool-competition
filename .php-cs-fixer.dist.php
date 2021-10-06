@@ -120,5 +120,6 @@ return $config
                              __DIR__.'/app',
                              __DIR__.'/tests',
                              __DIR__.'/database',
+                             __DIR__.'/routes',
                          ])
     );
