@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\AdminPlayerController;
 use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,6 +19,8 @@ use Inertia\Inertia;
 
 Route::middleware('auth')->group(function () {
     Route::resource('/', GameController::class)->only(['index', 'create', 'store', 'destroy']);
+
+    Route::get('/players', [PlayerController::class, 'index'])->name('player.index');
 });
 
 Route::middleware(['auth', 'auth.admin'])->prefix('admin')->group(function () {
@@ -25,7 +28,7 @@ Route::middleware(['auth', 'auth.admin'])->prefix('admin')->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::resource('player', PlayerController::class)->only(['index', 'store', 'update', 'destroy']);
+    Route::resource('player', AdminPlayerController::class)->only(['index', 'store', 'update', 'destroy']);
 });
 
 require __DIR__.'/auth.php';
