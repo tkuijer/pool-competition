@@ -81,10 +81,12 @@ class PlayerController extends Controller
      *
      * @param Player $player
      *
-     * @return Response
+     * @return RedirectResponse
      */
-    public function destroy(Player $player)
+    public function destroy(Player $player): RedirectResponse
     {
-        //
+        $player->delete();
+
+        return redirect()->back();
     }
 }
