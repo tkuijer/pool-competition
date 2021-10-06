@@ -20,8 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/', GameController::class)->only(['index', 'create', 'store', 'destroy']);
 });
 
-Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
+Route::middleware(['auth', 'auth.admin'])->prefix('admin')->group(function () {
+    Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
