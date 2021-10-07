@@ -13,14 +13,15 @@
     </div>
     <div v-if="activeStep === 2">
         <h2 class="font-bold pb-4 text-xl">
-            Welke kleur speelde {{ winner.name }}?
+            Welke ballen speelde {{ winner.name }}?
         </h2>
         <ul class="grid grid-cols-2 gap-x-5">
             <li v-for="color in colors">
                 <button
-                    class="block text-lg py-3 rounded-lg border border-gray-200 w-full hover:bg-blue-50"
+                    class="block text-lg py-3 rounded-lg border border-gray-200 w-full hover:bg-blue-50 flex justify-center"
                     @click="form.winner_color = color; activeStep++"
-                >{{ color }}
+                >
+                  <pool-ball :type="color" color="#FFB800" class="w-44 h-auto"></pool-ball>
                 </button>
             </li>
         </ul>
@@ -67,12 +68,14 @@ import {Head, Link} from '@inertiajs/inertia-vue3';
 import Layout from '@/Layouts/Default.vue';
 import SelectPlayerButton from "@/Components/SelectPlayerButton";
 import {useForm} from "@inertiajs/inertia-vue3";
+import PoolBall from "@/Components/PoolBall";
 
 const activeStep = 1;
 
 export default {
     layout: Layout,
     components: {
+      PoolBall,
         SelectPlayerButton,
         Head,
         Link,
