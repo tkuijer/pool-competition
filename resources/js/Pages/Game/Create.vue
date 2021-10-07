@@ -21,7 +21,7 @@
                     class="block text-lg py-3 rounded-lg border border-gray-200 w-full hover:bg-blue-50 flex justify-center"
                     @click="form.winner_color = color; activeStep++"
                 >
-                  <pool-ball :type="color" color="#FFB800" class="w-44 h-auto"></pool-ball>
+                  <pool-ball :type="color" color="#D12B2B" class="w-44 h-auto"></pool-ball>
                 </button>
             </li>
         </ul>
@@ -66,16 +66,16 @@
 <script>
 import {Head, Link} from '@inertiajs/inertia-vue3';
 import Layout from '@/Layouts/Default.vue';
+import PoolBall from "@/Components/PoolBall";
 import SelectPlayerButton from "@/Components/SelectPlayerButton";
 import {useForm} from "@inertiajs/inertia-vue3";
-import PoolBall from "@/Components/PoolBall";
 
 const activeStep = 1;
 
 export default {
     layout: Layout,
     components: {
-      PoolBall,
+        PoolBall,
         SelectPlayerButton,
         Head,
         Link,
