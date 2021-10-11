@@ -17,10 +17,11 @@ class GameController extends Controller
      */
     public function index(): InertiaResponse
     {
-        $games = Game::with('players')->get();
-
         return inertia('Game/Index', [
-            'games' => $games,
+            'games' => Game::with('players')
+                ->orderByDesc('id')
+                ->paginate(10)
+                ->withQueryString(),
         ]);
     }
 

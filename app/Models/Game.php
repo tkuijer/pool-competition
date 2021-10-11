@@ -28,6 +28,7 @@ class Game extends Model
     protected $appends = [
         'winner',
         'loser',
+        'played_at',
     ];
 
     protected $fillable = [
@@ -47,6 +48,11 @@ class Game extends Model
     public function getLoserAttribute(): Player
     {
         return $this->players()->wherePivot('winner', false)->first();
+    }
+
+    public function getPlayedAtAttribute()
+    {
+        return $this->created_at->format('d-m-Y');
     }
 
     public static function getColors()
