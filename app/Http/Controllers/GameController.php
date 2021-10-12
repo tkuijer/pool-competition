@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGameRequest;
 use App\Models\Game;
 use App\Models\Player;
+use App\Services\StatsService;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Response as InertiaResponse;
 
@@ -15,13 +16,14 @@ class GameController extends Controller
      *
      * @return InertiaResponse
      */
-    public function index(): InertiaResponse
+    public function index(StatsService $stats): InertiaResponse
     {
         return inertia('Game/Index', [
+            'stats' => $stats->getStats(),
             'games' => Game::with('players')
-                ->orderByDesc('id')
-                ->paginate(10)
-                ->withQueryString(),
+                           ->orderByDesc('id')
+                           ->paginate(10)
+                           ->withQueryString(),
         ]);
     }
 

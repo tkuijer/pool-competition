@@ -24,5 +24,9 @@
         "tailwindcss": "^2.1.2",
         "vue": "^3.0.5",
         "vue-loader": "^16.1.2"
+    },
+    "dependencies": {
+        "@j-t-mcc/vue3-chartjs": "^1.1.4",
+        "chart.js": "^3.5.1"
     }
 }

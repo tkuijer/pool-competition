@@ -7,6 +7,23 @@
         <h3 class="font-semibold text-xl">Er zijn nog geen potjes gespeeld.</h3>
     </div>
 
+    <div class="flex justify-center gap-4 h-96">
+        <pie-chart :data="stats.winning_balls" :options="{
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                }
+            }
+        }" />
+        <!--        <pie-chart :data="stats.winning_players" :options="{
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }" />-->
+    </div>
+
     <div v-for="game in games.data" class="border-b mb-4">
         <h3 class="font-semibold text-lg">#{{ game.id }} op {{ game.played_at }}:</h3>
         <div class="text-lg">
@@ -36,6 +53,7 @@
 import {Head, Link} from '@inertiajs/inertia-vue3';
 import Layout from '@/Layouts/Default.vue';
 import NavigationLinks from "@/Components/NavigationLinks";
+import PieChart from "@/Components/PieChart";
 
 export default {
     layout: Layout,
@@ -43,9 +61,11 @@ export default {
         Head,
         Link,
         NavigationLinks,
+        PieChart,
     },
     props: {
-        games: Object
+        games: Object,
+        stats: Object,
     },
 }
 </script>
