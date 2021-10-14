@@ -8,7 +8,7 @@
     </div>
 
     <div class="flex justify-center gap-4 h-96">
-        <pie-chart :data="stats.winning_balls" :options="{
+        <pie-chart :data="stats.winning_methods" :options="{
             plugins: {
                 legend: {
                     position: 'bottom',
@@ -16,6 +16,13 @@
             }
         }" />
         <pie-chart :data="stats.winning_players" :options="{
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                }
+            }
+        }" />
+        <pie-chart :data="stats.winning_balls" :options="{
             plugins: {
                 legend: {
                     position: 'bottom',
