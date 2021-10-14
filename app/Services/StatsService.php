@@ -53,13 +53,14 @@ class StatsService
             'datasets' => [
                 [
                     'data' => [],
-                ]
+                ],
             ],
             'labels' => [],
         ];
 
         foreach ($winCounts as $count) {
             $data['datasets'][0]['data'][] = $count->cnt;
+            $data['datasets'][0]['backgroundColor'][] = '#'.substr(md5($count->name), 0, 6);
             $data['labels'][] = $count->name;
         }
 

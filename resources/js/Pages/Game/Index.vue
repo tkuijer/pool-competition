@@ -15,13 +15,13 @@
                 }
             }
         }" />
-        <!--        <pie-chart :data="stats.winning_players" :options="{
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                        }
-                    }
-                }" />-->
+        <pie-chart :data="stats.winning_players" :options="{
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                }
+            }
+        }" />
     </div>
 
     <div v-for="game in games.data" class="border-b mb-4">
