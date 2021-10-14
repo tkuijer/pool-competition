@@ -10,12 +10,13 @@ class StatsService
     public function getStats()
     {
         return [
-            'winning_balls' => $this->getWinningBallStats(),
+            'winning_methods' => $this->getWinningMethodStats(),
             'winning_players' => $this->getWinningPlayerStats(),
+            'winning_balls' => $this->getWinningBallStats(),
         ];
     }
 
-    private function getWinningBallStats()
+    private function getWinningMethodStats()
     {
         $games = Game::all();
 
@@ -43,11 +44,11 @@ class StatsService
     private function getWinningPlayerStats()
     {
         $winCounts = DB::table('game_player', 'gp')
-                       ->leftJoin('players AS p', 'p.id', 'gp.player_id')
-                       ->groupBy('p.id')
-                       ->where('gp.winner', true)
-                       ->selectRaw('count(1) as cnt, p.name')
-                       ->get();
+            ->leftJoin('players AS p', 'p.id', 'gp.player_id')
+            ->groupBy('p.id')
+            ->where('gp.winner', true)
+            ->selectRaw('count(1) as cnt, p.name')
+            ->get();
 
         $data = [
             'datasets' => [
@@ -65,5 +66,24 @@ class StatsService
         }
 
         return $data;
+    }
+
+    private function getWinningBallStats()
+    {
+        $data = DB::table('game_player')
+            ->where('winner', 1)
+            ->get()
+            ->countBy('color')
+            ->toArray();
+
+        return [
+            'datasets' => [
+                [
+                    'data' => array_values($data),
+                    'backgroundColor' => ['#1ABC9C', '#FFC300'],
+                ],
+            ],
+            'labels' => array_keys($data),
+        ];
     }
 }
