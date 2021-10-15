@@ -13,6 +13,7 @@ class StatsService
             'winning_methods' => $this->getWinningMethodStats(),
             'winning_players' => $this->getWinningPlayerStats(),
             'winning_balls' => $this->getWinningBallStats(),
+            'winning_players_percentage' => $this->getWinningPlayerPercentageStats(),
         ];
     }
 
@@ -85,5 +86,44 @@ class StatsService
             ],
             'labels' => array_keys($data),
         ];
+    }
+
+    private function getWinningPlayerPercentageStats()
+    {
+        $matchCounts = DB::table('game_player', 'gp')
+            ->leftJoin('players AS p', 'p.id', 'gp.player_id')
+            ->get();
+
+        //group by player, count all wins and losses, catch edge cases of people without wins or losses, calculate win percentage, sort descending
+        $matchCounts = $matchCounts->groupBy('name')->map(function ($player) {
+            return $player->countBy(function($match) {
+                return $match->winner;
+            })->toArray();
+        })->map(function ($player) {
+            if(!array_key_exists(1, $player)) {
+                return 0;
+            } else if(!array_key_exists(0, $player)) {
+                return 100;
+            }
+
+            return round(100 / ($player[0] + $player[1]) * $player[1]);
+        })->sortDesc();
+
+        $data = [
+            'datasets' => [
+                [
+                    'data' => [],
+                ],
+            ],
+            'labels' => [],
+        ];
+
+        foreach ($matchCounts as $key => $count) {
+            $data['datasets'][0]['data'][] = $count;
+            $data['datasets'][0]['backgroundColor'][] = '#'.substr(md5($key), 0, 6);
+            $data['labels'][] = $key;
+        }
+
+        return $data;
     }
 }
