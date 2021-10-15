@@ -8,4 +8,13 @@ class BaseStats
     {
         return $this->get();
     }
+
+    public function getChartArray($dataSets, $labels): array
+    {
+        return [
+            'datasets' => $dataSets,
+            'labels' => $labels
+        ];
+
+    }
 }

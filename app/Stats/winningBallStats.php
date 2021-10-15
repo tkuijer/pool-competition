@@ -14,14 +14,14 @@ class winningBallStats extends BaseStats implements StatsInterface
             ->countBy('color')
             ->toArray();
 
-        return [
-            'datasets' => [
-                [
-                    'data' => array_values($data),
-                    'backgroundColor' => ['#1ABC9C', '#FFC300'],
-                ],
+        $dataSets = [
+            [
+                'data' => array_values($data),
+                'backgroundColor' => ['#1ABC9C', '#FFC300'],
             ],
-            'labels' => array_keys($data),
         ];
+
+        return $this->getChartArray($dataSets, array_keys($data));
+
     }
 }
