@@ -95,28 +95,17 @@ class StatsService
             ->get();
 
         //group by player, count all wins and losses, catch edge cases of people without wins or losses, calculate win percentage, sort descending
-        $matchCounts = $matchCounts->groupBy('name')->map(function ($player) {
-            $winAndLossCount = $player->countBy(function($match) {
-                return $match->winner;
-            })->toArray();
+        $matchCounts = $matchCounts->groupBy('name')->map(function ($playerGames) {
+            $winAndLossCount = $playerGames->countBy('winner')->toArray();
 
-            if(!array_key_exists(1, $winAndLossCount)) {
+            if(! array_key_exists(1, $winAndLossCount)) {
                 return 0;
-            } else if(!array_key_exists(0, $winAndLossCount)) {
+            } else if(! array_key_exists(0, $winAndLossCount)) {
                 return 100;
             }
 
             return round(100 / ($winAndLossCount[0] + $winAndLossCount[1]) * $winAndLossCount[1]);
         })->sortDesc();
-
-        $data = [
-            'datasets' => [
-                [
-                    'data' => [],
-                ],
-            ],
-            'labels' => [],
-        ];
 
         foreach ($matchCounts as $key => $count) {
             $data['datasets'][0]['data'][] = $count;
