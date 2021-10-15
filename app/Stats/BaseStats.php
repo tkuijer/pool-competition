@@ -13,8 +13,7 @@ class BaseStats
     {
         return [
             'datasets' => $dataSets,
-            'labels' => $labels
+            'labels' => $labels,
         ];
-
     }
 }

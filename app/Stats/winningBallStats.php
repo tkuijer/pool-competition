@@ -22,6 +22,5 @@ class winningBallStats extends BaseStats implements StatsInterface
         ];
 
         return $this->getChartArray($dataSets, array_keys($data));
-
     }
 }
