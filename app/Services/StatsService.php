@@ -98,9 +98,9 @@ class StatsService
         $matchCounts = $matchCounts->groupBy('name')->map(function ($playerGames) {
             $winAndLossCount = $playerGames->countBy('winner')->toArray();
 
-            if(! array_key_exists(1, $winAndLossCount)) {
+            if (! array_key_exists(1, $winAndLossCount)) {
                 return 0;
-            } else if(! array_key_exists(0, $winAndLossCount)) {
+            } elseif (! array_key_exists(0, $winAndLossCount)) {
                 return 100;
             }
 
