@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vue3-chart-js v-bind="{ ...pieChart }" class="h-96" />
+        <vue3-chart-js v-bind="{ ...pieChart }" class="h-72" />
     </div>
 </template>
 

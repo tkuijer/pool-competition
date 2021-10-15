@@ -7,7 +7,7 @@
         <h3 class="font-semibold text-xl">Er zijn nog geen potjes gespeeld.</h3>
     </div>
 
-    <div class="flex justify-center gap-4 h-96">
+    <div class="flex justify-center gap-4 h-72 mb-5">
         <pie-chart :data="stats.winning_methods" :options="{
             plugins: {
                 legend: {
@@ -23,6 +23,13 @@
             }
         }" />
         <pie-chart :data="stats.winning_balls" :options="{
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                }
+            }
+        }" />
+        <pie-chart :data="stats.winning_players_percentage" :options="{
             plugins: {
                 legend: {
                     position: 'bottom',
