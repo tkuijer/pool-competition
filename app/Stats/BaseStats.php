@@ -2,6 +2,8 @@
 
 namespace App\Stats;
 
+use Illuminate\Support\Str;
+
 class BaseStats
 {
     public function __construct()
@@ -15,5 +17,10 @@ class BaseStats
             'datasets' => $dataSets,
             'labels' => $labels,
         ];
+    }
+
+    public function getHexColorForString($string)
+    {
+        return Str::of($string)->toHexColor();
     }
 }

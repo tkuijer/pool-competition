@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\StringService;
 use Bugsnag;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        StringService::loadMacros();
     }
 
     /**
