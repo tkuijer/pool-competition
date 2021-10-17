@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\PlayerStatService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -22,5 +23,10 @@ class Player extends Model
     public function games(): BelongsToMany
     {
         return $this->belongsToMany(Game::class)->withPivot(['winner', 'color', 'cue_number']);
+    }
+
+    public function getStats()
+    {
+        return app(PlayerStatService::class)->getForPlayer($this);
     }
 }
