@@ -125,10 +125,10 @@ class PlayerStatService
             return $game->loser;
         })->groupBy('id')
             ->map(function ($wonGames, $playerId) {
-            return [
-                'playerId' => $playerId,
-                'wonGames' => $wonGames->count(),
-            ];
+                return [
+                    'playerId' => $playerId,
+                    'wonGames' => $wonGames->count(),
+                ];
         })
             ->sortByDesc('wonGames')
             ->first();
