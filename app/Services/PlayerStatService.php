@@ -129,7 +129,7 @@ class PlayerStatService
                     'playerId' => $playerId,
                     'wonGames' => $wonGames->count(),
                 ];
-        })
+            })
             ->sortByDesc('wonGames')
             ->first();
 
