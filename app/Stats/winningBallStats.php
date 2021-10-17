@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class winningBallStats extends BaseStats implements StatsInterface
 {
-    public function data() : array
+    public function data(): array
     {
         $data = DB::table('game_player')
             ->where('winner', 1)

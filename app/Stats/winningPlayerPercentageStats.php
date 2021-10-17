@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class winningPlayerPercentageStats extends BaseStats implements StatsInterface
 {
-    public function data() : array
+    public function data(): array
     {
         $matchCounts = DB::table('game_player', 'gp')
             ->leftJoin('players AS p', 'p.id', 'gp.player_id')

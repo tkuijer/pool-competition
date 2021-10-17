@@ -6,7 +6,8 @@ use Illuminate\Support\Str;
 
 class BaseStats
 {
-    public static function get(){
+    public static function get()
+    {
         return (new static())->data();
     }
 
