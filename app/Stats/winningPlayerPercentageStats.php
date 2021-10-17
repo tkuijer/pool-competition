@@ -31,6 +31,8 @@ class winningPlayerPercentageStats extends BaseStats implements StatsInterface
             $data['labels'][] = $key;
         }
 
+        $data['datasets'][0]['label'] = 'Gewonnen percentage van gespeelde potjes';
+
         return $data;
     }
 }

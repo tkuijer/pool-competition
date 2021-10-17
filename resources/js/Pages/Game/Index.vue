@@ -29,10 +29,17 @@
                 }
             }
         }" />
-        <pie-chart :data="stats.winning_players_percentage" :options="{
+    </div>
+    <div class="flex justify-center gap-4 h-72 mb-5">
+        <bar-chart :data="stats.winning_players_percentage" :options="{
             plugins: {
                 legend: {
                     position: 'bottom',
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
                 }
             }
         }" />
@@ -68,6 +75,7 @@ import {Head, Link} from '@inertiajs/inertia-vue3';
 import Layout from '@/Layouts/Default.vue';
 import NavigationLinks from "@/Components/NavigationLinks";
 import PieChart from "@/Components/PieChart";
+import BarChart from "@/Components/BarChart";
 
 export default {
     layout: Layout,
@@ -76,6 +84,7 @@ export default {
         Link,
         NavigationLinks,
         PieChart,
+        BarChart,
     },
     props: {
         games: Object,

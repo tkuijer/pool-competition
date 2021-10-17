@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vue3-chart-js v-bind="{ ...pieChart }" class="h-72" />
+        <vue3-chart-js v-bind="{ ...barChart }" class="h-72" />
     </div>
 </template>
 
@@ -16,14 +16,14 @@ export default {
         Vue3ChartJs,
     },
     setup(props) {
-        const pieChart = {
-            type: "pie",
+        const barChart = {
+            type: "bar",
             data: props.data,
             options: props.options,
         };
 
         return {
-            pieChart,
+            barChart: barChart,
         };
     },
 };
