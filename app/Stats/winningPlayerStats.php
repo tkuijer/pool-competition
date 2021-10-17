@@ -26,7 +26,7 @@ class winningPlayerStats extends BaseStats implements StatsInterface
 
         foreach ($winCounts as $count) {
             $data['datasets'][0]['data'][] = $count->cnt;
-            $data['datasets'][0]['backgroundColor'][] = '#'.substr(md5($count->name), 0, 6);
+            $data['datasets'][0]['backgroundColor'][] = $this->getHexColorForString($count->name);
             $data['labels'][] = $count->name;
         }
 

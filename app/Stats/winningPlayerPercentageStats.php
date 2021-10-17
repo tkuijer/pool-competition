@@ -27,7 +27,7 @@ class winningPlayerPercentageStats extends BaseStats implements StatsInterface
 
         foreach ($matchCounts as $key => $count) {
             $data['datasets'][0]['data'][] = $count;
-            $data['datasets'][0]['backgroundColor'][] = '#'.substr(md5($key), 0, 6);
+            $data['datasets'][0]['backgroundColor'][] = $this->getHexColorForString($key);
             $data['labels'][] = $key;
         }
 

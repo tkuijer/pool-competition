@@ -3,22 +3,17 @@
 namespace App\Stats;
 
 use App\Models\Game;
+use Illuminate\Support\Collection;
 
 class winningMethodsStats extends BaseStats implements StatsInterface
 {
+    private Collection $games;
+
     public function get()
     {
-        $games = Game::all();
+        $this->games = Game::all();
 
-        $winningBallStats = $games->reduce(function ($carry, Game $game) {
-            $carry[$game->win_method] += 1;
-
-            return $carry;
-        }, [
-            Game::WINNING_BLACK_BALL => 0,
-            Game::WINNING_BLACK_BALL_OPPONENT => 0,
-            Game::WINNING_NORMAL => 0,
-        ]);
+        $winningBallStats = $this->countWinningMetods();
 
         return [
             'datasets' => [
@@ -29,5 +24,23 @@ class winningMethodsStats extends BaseStats implements StatsInterface
             ],
             'labels' => array_keys($winningBallStats),
         ];
+    }
+
+    private function getWinningMethodStartCounters(): array
+    {
+        return [
+            Game::WINNING_BLACK_BALL => 0,
+            Game::WINNING_BLACK_BALL_OPPONENT => 0,
+            Game::WINNING_NORMAL => 0,
+        ];
+    }
+
+    private function countWinningMetods(): array
+    {
+        return $this->games->reduce(function ($winningMethods, Game $game) {
+            $winningMethods[$game->win_method] += 1;
+
+            return $winningMethods;
+        }, $this->getWinningMethodStartCounters());
     }
 }

@@ -9,7 +9,7 @@ use App\Stats\winningPlayerStats;
 
 class StatsService
 {
-    public function getStats()
+    public function getStats(): array
     {
         return [
             'winning_methods' => new winningMethodsStats(),
