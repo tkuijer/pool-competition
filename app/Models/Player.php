@@ -20,6 +20,11 @@ class Player extends Model
         'name',
     ];
 
+    public static function getBySlug($slug): ?self
+    {
+        return self::whereSlug($slug)->first();
+    }
+
     public function games(): BelongsToMany
     {
         return $this->belongsToMany(Game::class)->withPivot(['winner', 'color', 'cue_number']);
