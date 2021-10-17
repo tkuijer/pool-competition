@@ -4,5 +4,5 @@ namespace App\Stats;
 
 interface StatsInterface
 {
-    public function get();
+    public function data();
 }

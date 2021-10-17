@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class winningPlayerStats extends BaseStats implements StatsInterface
 {
-    public function get()
+    public function data() : array
     {
         $winCounts = DB::table('game_player', 'gp')
             ->leftJoin('players AS p', 'p.id', 'gp.player_id')

@@ -12,10 +12,10 @@ class StatsService
     public function getStats(): array
     {
         return [
-            'winning_methods' => app(winningMethodsStats::class)->get(),
-            'winning_players' => app(winningPlayerStats::class)->get(),
-            'winning_balls' => app(winningBallStats::class)->get(),
-            'winning_players_percentage' => app(winningPlayerPercentageStats::class)->get(),
+            'winning_methods' => winningMethodsStats::get(),
+            'winning_players' => winningPlayerStats::get(),
+            'winning_balls' => winningBallStats::get(),
+            'winning_players_percentage' => winningPlayerPercentageStats::get(),
         ];
     }
 }
