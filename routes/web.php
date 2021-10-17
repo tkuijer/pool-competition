@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPlayerController;
+use App\Http\Controllers\CompareController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/', [GameController::class, 'store'])->name('game.store');
 
     Route::get('/players', [PlayerController::class, 'index'])->name('player.index');
+
+    Route::get('/compare/{player1}/{player2}', [CompareController::class, 'show'])->name('compare.show');
 });
 
 Route::middleware(['auth', 'auth.admin'])->name('admin.')->prefix('admin')->group(function () {

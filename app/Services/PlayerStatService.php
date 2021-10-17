@@ -51,7 +51,7 @@ class PlayerStatService
             'percentageWonGamesByBlackBallOpponent' => $percentageWonGamesByBlackBallOpponent,
             'mostPlayedColor' => $mostPlayedColor,
             'bestPlayingDay' => $this->getBestPlayingDay(),
-            'mostDefeatedPlayer' => $this->getMostDefeatedPlayer(), 
+            'mostDefeatedPlayer' => $this->getMostDefeatedPlayer(),
         ];
     }
 
@@ -115,29 +115,29 @@ class PlayerStatService
         return $dayNames[$dayNumber];
     }
 
-    private function getMostDefeatedPlayer() : ?array
+    private function getMostDefeatedPlayer(): ?array
     {
-        if ($this->wonGames->count() === 0){
+        if ($this->wonGames->count() === 0) {
             return null;
         }
 
-        $mostDefeatedPlayer = $this->wonGames->map(function(Game $game){
+        $mostDefeatedPlayer = $this->wonGames->map(function (Game $game) {
             return $game->loser;
         })->groupBy('id')
-        ->map(function($wonGames, $playerId){
+            ->map(function ($wonGames, $playerId) {
             return [
                 'playerId' => $playerId,
                 'wonGames' => $wonGames->count(),
             ];
         })
-        ->sortByDesc('wonGames')
-        ->first();
+            ->sortByDesc('wonGames')
+            ->first();
 
         $player = Player::find($mostDefeatedPlayer['playerId']);
 
         return [
-          'player' => $player->name,
-          'amount' => $mostDefeatedPlayer['wonGames']
+            'player' => $player->name,
+            'amount' => $mostDefeatedPlayer['wonGames'],
         ];
     }
 }
