@@ -6,11 +6,6 @@ use Illuminate\Support\Str;
 
 class BaseStats
 {
-    public function __construct()
-    {
-        return $this->get();
-    }
-
     public function getChartArray($dataSets, $labels): array
     {
         return [
