@@ -9,7 +9,7 @@ class winningMethodsStats extends BaseStats implements StatsInterface
 {
     private Collection $games;
 
-    public function data() : array
+    public function data(): array
     {
         $this->games = Game::all();
 
