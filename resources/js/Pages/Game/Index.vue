@@ -96,6 +96,9 @@ export default {
             .listen('.games.created', (event) => {
                 Inertia.reload();
             });
+    },
+    unmounted() {
+        Echo.leaveChannel('games');
     }
 }
 </script>
