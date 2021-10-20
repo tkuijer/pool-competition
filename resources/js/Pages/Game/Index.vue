@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import {Inertia} from '@inertiajs/inertia'
 import {Head, Link} from '@inertiajs/inertia-vue3';
 import Layout from '@/Layouts/Default.vue';
 import NavigationLinks from "@/Components/NavigationLinks";
@@ -90,5 +91,11 @@ export default {
         games: Object,
         stats: Object,
     },
+    mounted() {
+        Echo.channel('games')
+            .listen('.games.created', (event) => {
+                Inertia.reload();
+            });
+    }
 }
 </script>

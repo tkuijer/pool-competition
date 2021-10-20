@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewGameCreatedEvent;
 use App\Http\Requests\StoreGameRequest;
 use App\Models\Game;
 use App\Models\Player;
@@ -21,9 +22,9 @@ class GameController extends Controller
         return inertia('Game/Index', [
             'stats' => $stats->getStats(),
             'games' => Game::with('players')
-                ->orderByDesc('id')
-                ->paginate(10)
-                ->withQueryString(),
+                           ->orderByDesc('id')
+                           ->paginate(10)
+                           ->withQueryString(),
         ]);
     }
 
@@ -58,6 +59,8 @@ class GameController extends Controller
                 'color' => $opponent_color,
             ],
         ]);
+
+        NewGameCreatedEvent::dispatch($game->fresh('players'));
 
         return redirect()->route('game.index');
     }
