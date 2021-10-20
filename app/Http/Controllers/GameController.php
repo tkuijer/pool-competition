@@ -22,9 +22,9 @@ class GameController extends Controller
         return inertia('Game/Index', [
             'stats' => $stats->getStats(),
             'games' => Game::with('players')
-                           ->orderByDesc('id')
-                           ->paginate(10)
-                           ->withQueryString(),
+                ->orderByDesc('id')
+                ->paginate(10)
+                ->withQueryString(),
         ]);
     }
 
