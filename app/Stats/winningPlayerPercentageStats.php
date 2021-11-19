@@ -14,7 +14,7 @@ class winningPlayerPercentageStats extends BaseStats implements StatsInterface
 
         //group by player, count all wins and losses, catch edge cases of people without wins or losses, calculate win percentage, sort descending
         $matchCounts = $matchCounts->groupBy('name')->map(function ($playerGames) {
-            $winAndLossCount = $playerGames->countBy('winner')->toArray();
+            $winAndLossCount = $playerGames->sortBy('created_at')->take(-25)->countBy('winner')->toArray();
 
             if (! array_key_exists(1, $winAndLossCount)) {
                 return 0;
