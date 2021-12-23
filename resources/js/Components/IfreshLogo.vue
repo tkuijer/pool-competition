@@ -1,5 +1,5 @@
 <template>
-    <svg width="746" height="288" viewBox="0 0 746 288" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg viewBox="0 0 746 288" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
             <path d="M2.454 183.335H32.05V45.612H2.454v137.723zM17.25.935c9.113 0 16.502 7.399 16.502 16.506 0 9.104-7.389 16.502-16.502 16.502-9.097 0-16.509-7.398-16.509-16.502C.741 8.334 8.153.935 17.251.935z" id="path-1"/>
             <path id="path-3" d="M22.252 103.515H.905v-31.3h21.347V.794H159.44v31.304H55.27v40.119h72.577v31.3H55.27v75.975H22.252z"/>
@@ -24,7 +24,8 @@
                 </g>
                 <g id="Group-9" transform="translate(232.412 41.235)">
                     <mask id="mask-6" fill="#fff"
-                    ><use xlink:href="#path-5"/>
+                    >
+                        <use xlink:href="#path-5"/>
                     </mask>
                     <path id="Fill-7" fill="#8ABD3F" mask="url(#mask-6)" d="M.613 142.522h72.35V.614H.612z"/>
                 </g>
