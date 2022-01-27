@@ -36,7 +36,12 @@ class GameController extends Controller
 
         return inertia(
             'Game/Create',
-            compact('colors', 'players', 'winningMethods')
+            [
+                'colors' => $colors,
+                'players' => $players,
+                'winningMethods' => $winningMethods,
+                'cues' => range(1, 4),
+            ]
         );
     }
 
@@ -53,10 +58,12 @@ class GameController extends Controller
             $request->winner_id => [
                 'winner' => true,
                 'color' => $request->winner_color,
+                'cue_number' => $request->winner_cue,
             ],
             $request->opponent_id => [
                 'winner' => false,
                 'color' => $opponent_color,
+                'cue_number' => $request->opponent_cue,
             ],
         ]);
 

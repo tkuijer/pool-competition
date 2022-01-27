@@ -21,7 +21,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/snow.css') }}">
 
     <!-- Scripts -->
     @routes
@@ -30,111 +29,5 @@
 <body class="font-sans antialiased">
 @inertia
 
-@env ('local')
-    <script src="http://localhost:8080/js/bundle.js"></script>
-@endenv
-
-<div class="fixed h-screen w-screen inset-0 pointer-events-none z-100">
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-</div>
 </body>
 </html>

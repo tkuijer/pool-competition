@@ -30,6 +30,8 @@ class StoreGameRequest extends FormRequest
             'opponent_id' => 'integer|required|exists:players,id|different:winner_id',
             'winner_color' => ['string', 'required', Rule::in(Game::getColors())],
             'win_method' => ['string', 'required', Rule::in(Game::getWinningMethods())],
+            'winner_cue' => 'integer|required',
+            'opponent_cue' => 'integer|required',
         ];
     }
 }
