@@ -56,13 +56,14 @@ class GameSeeder extends Seeder
             [
                 'color' => $this->getRandomColor(),
                 'winner' => $this->getWinner(),
+                'cue_number' => rand(1, 4),
             ]
         );
     }
 
     private function getRandomPlayerId(): ?int
     {
-        if (! $this->players) {
+        if (!$this->players) {
             return null;
         }
 
@@ -87,7 +88,7 @@ class GameSeeder extends Seeder
 
     private function getWinner(): bool
     {
-        $this->winner = ! $this->winner;
+        $this->winner = !$this->winner;
 
         return $this->winner;
     }
