@@ -6,7 +6,6 @@ use App\Stats\winningBallStats;
 use App\Stats\winningCueStats;
 use App\Stats\winningMethodsStats;
 use App\Stats\winningPlayerPercentageStats;
-use App\Stats\winningPlayerStats;
 
 class StatsService
 {

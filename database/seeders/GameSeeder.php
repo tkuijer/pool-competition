@@ -63,7 +63,7 @@ class GameSeeder extends Seeder
 
     private function getRandomPlayerId(): ?int
     {
-        if (!$this->players) {
+        if (! $this->players) {
             return null;
         }
 
@@ -88,7 +88,7 @@ class GameSeeder extends Seeder
 
     private function getWinner(): bool
     {
-        $this->winner = !$this->winner;
+        $this->winner = ! $this->winner;
 
         return $this->winner;
     }
