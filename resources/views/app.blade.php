@@ -29,5 +29,10 @@
 <body class="font-sans antialiased">
 @inertia
 
+    <div class="fixed h-screen w-screen inset-0 pointer-events-none z-100">
+        @for($i = 0; $i <= 50; $i++)
+            <div class="snowflake"></div>
+        @endfor
+    </div>
 </body>
 </html>
