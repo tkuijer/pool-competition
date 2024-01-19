@@ -16,10 +16,10 @@ module.exports = {
         },
         colors: {
             background: {
-                dark: '#606c38',
-                light: '#fefae0'
+                dark: '#B9E0FF',
+                light: '#F1F6F5'
             },
-            'text-default': '#283618'
+            'text-default': '#25316D'
         }
     },
 
