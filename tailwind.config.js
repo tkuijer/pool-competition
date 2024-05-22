@@ -16,10 +16,13 @@ module.exports = {
         },
         colors: {
             background: {
-                dark: '#B9E0FF',
-                light: '#F1F6F5'
+                dark: '#ED9455',
+                light: '#FFFBDA'
             },
-            'text-default': '#25316D'
+            'text-default': '#114232'
+        },
+        scale: {
+            '500': '5'
         }
     },
 

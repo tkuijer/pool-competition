@@ -9,20 +9,24 @@
 
 @-webkit-keyframes snowfall {
     0% {
-        transform: translate3d(var(--left-ini), 0, 0)
+        transform: translate3d(var(--left-ini), 0, 0) rotateZ(var(--tw-rotate))
     }
     to {
-        transform: translate3d(var(--left-end), 110vh, 0)
+        transform: translate3d(var(--left-end), 110vh, 0) rotateZ(var(--tw-rotate))
     }
 }
 
 @keyframes snowfall {
     0% {
-        transform: translate3d(var(--left-ini), 0, 0)
+        transform: translate3d(var(--left-ini), 0, 0) rotateZ(var(--tw-rotate))
     }
     to {
-        transform: translate3d(var(--left-end), 110vh, 0)
+        transform: translate3d(var(--left-end), 110vh, 0) rotateZ(var(--tw-rotate))
     }
+}
+
+.snowflake.derp {
+    --size: 5vw !important;
 }
 
 .snowflake:first-child {

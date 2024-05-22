@@ -31,9 +31,14 @@
 
     <div class="fixed h-screen w-screen inset-0 pointer-events-none">
         @for($i = 0; $i <= 30; $i++)
+
             {{-- rotate-0, rorate-6, rotate-12, rotate-45, rotate-90, rotate 180, scale-50, scake-75, scale-100, scale-125, scale-25 --}}
-            <img src="{{ asset('img/snowflake.png') }}" class="snowflake rotate-{{ Arr::random([0, 12, 45, 90, 180]) }} scale-{{ Arr::random([25, 50, 75, 100, 125]) }} transform-gpu" />
+            <img src="{{ asset('img/sun.svg') }}" class="snowflake rotate-{{ Arr::random([0, 12, 45]) }} scale-{{ Arr::random([25, 50, 75, 100, 125]) }} transform-gpu" />
         @endfor
+        <img src="{{ asset('img/sun_derp.svg') }}" class="snowflake derp rotate-{{ Arr::random([0, 12, 45]) }} transform-gpu" />
+        <img src="{{ asset('img/sun_derp.svg') }}" class="snowflake derp rotate-{{ Arr::random([0, 12, 45]) }} transform-gpu" />
+        <img src="{{ asset('img/sun_derp.svg') }}" class="snowflake derp rotate-{{ Arr::random([0, 12, 45]) }} transform-gpu" />
+        <img src="{{ asset('img/sun_derp.svg') }}" class="snowflake derp rotate-{{ Arr::random([0, 12, 45]) }} transform-gpu" />
     </div>
 </body>
 </html>
